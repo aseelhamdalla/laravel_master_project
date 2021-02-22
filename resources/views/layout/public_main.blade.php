@@ -132,19 +132,19 @@
                                     </div>
                                     <div class="noti-content">
                                         <ul class="notification-list">
-                 <li style="background-color:lightgray" class="notification-message"
-                                            >
-      @foreach(auth()->user()->unreadNotifications as $notification)
-     {{-- <p>{{auth()->user()->unreadNotifications}}</p> --}}
-            <a
-      href="{{ '/provider_dashboard/booking_list/' . $notification->data['booking']['provider_id'] }}">
-                                                        <div class="media">
-                                          <span class="avatar avatar-sm">
- {{-- <img class="avatar-img rounded-circle" alt="User Image"
-  src="{{asset('uploads/photo/'.$notification->data['user']->info->image)}}">  --}}
+                 <li style="background-color:lightgray" class="notification-message"  >
+                                          
+      @foreach(auth()->user()->unreadNotifications as $notification)   
+     <a href="{{ '/provider_dashboard/booking_list/' . $notification->data['booking']['provider_id'] }}">
+                                          <div class="media">
+                                          <span class="avatar avatar-md">
+                    
+                                        
+                           
+               <img class="avatar-lg rounded-circle" alt=""
+                 src="{{asset('uploads/photo/'.session('image') )}}" > 
+              
 
-  {{-- {{ $notification->data['user']}} --}}
-                                         {{-- {{$notification->data['user']['id']}} --}}
                                                             </span>
                                                             <div class="media-body">
                                                                 <p class="noti-details"> <span
@@ -173,8 +173,7 @@
                                         @endif
 
 
-
-                                        {{-- ***************************************READ NOTIFICATION --}}
+   {{-- ***************************************READ NOTIFICATION --}}
 
                                         <ul class="notification-list">
                                             <li class="notification-message">
@@ -183,8 +182,8 @@
                                                         href="{{ '/provider_dashboard/booking_list/' . $notification->data['booking']['provider_id'] }}">
                                                         <div class="media">
                                                             <span class="avatar avatar-sm">
-                                                                {{-- <img class="avatar-img rounded-circle" alt="User Image" src="{{asset('uploads/photo/'. ($notification->data['user'])->info->image)}}"> --}}
-                                                                {{-- {{$notification->data['user']['id']}} --}}
+                                                                <img class="avatar-lg rounded-circle" alt=""
+                                                                src="{{asset('uploads/photo/'.session('image') )}}" > 
                                                             </span>
                                                             <div class="media-body">
                                                                 <p class="noti-details"> <span
@@ -220,7 +219,7 @@
 
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"
                                     aria-expanded="false">
-                                    @if (isset(Auth::user()->info->image) && !empty(Auth::user()->info->image))
+              @if(isset(Auth::user()->info->image) && !empty(Auth::user()->info->image))
                                         <span class="user-img">
                                             <img src="{{ asset('uploads/photo/' . Auth::user()->info->image) }}"
                                                 class="avatar-img rounded-circle" alt="image" width="150px"
@@ -299,10 +298,12 @@
                                                     @if ($notification->type === 'App\Notifications\AcceptToService')
                                                         <a href="{{ '/my_booking/' . Auth::user()->id }}">
 
-                                                            <div class="media">
-                                                                <span class="avatar avatar-sm">
-                                                                    {{-- @if (isset(Auth::user()->info->image) && !empty(Auth::user()->info->image)) --}}
-                                                                    {{-- <img class="avatar-img rounded-circle" alt="User Image" src="{{asset('uploads/photo/'.$notification->data['Provider']->info->image)}}"> --}}
+                <div class="media">
+          <span class="avatar avatar-md">
+      {{-- @if (isset(Auth::user()->info->image) && !empty(Auth::user()->info->image)) --}}
+                                                                     
+               <img class="avatar-lg rounded-circle" alt=""
+               src="{{asset('uploads/photo/'.session('image') )}}" > 
 
                                                                     {{-- @endif --}}
                                                                 </span>
@@ -332,8 +333,8 @@
 
                                                             <div class="media">
                                                                 <span class="avatar avatar-sm">
-                                                                    {{-- <img class="avatar-img rounded-circle" alt="User Image" src="{{asset('uploads/photo/'. ($notification->data['user'])->info->image)}}"> --}}
-                                                                    {{-- {{$notification->data['user']['id']}} --}}
+                                                                    <img class="avatar-lg rounded-circle" alt=""
+                                                                    src="{{asset('uploads/photo/'.session('image') )}}" > 
                                                                 </span>
                                                                 <div class="media-body">
 
@@ -401,10 +402,12 @@
                                 </div>
                             </li>
                             <!-- /Notifications -->
+                            
                             <li class="nav-item dropdown has-arrow logged-item ">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"
                                     aria-expanded="false">
-                                    @if (isset(Auth::user()->info->image) && !empty(Auth::user()->info->image))
+    @if (isset(Auth::user()->info->image) && !empty(Auth::user()->info->image))
+    
                                         <span class="user-img">
                                             <img src="{{ asset('uploads/photo/' . Auth::user()->info->image) }}"
                                                 class="avatar-img rounded-circle" alt="image" width="150px"
@@ -420,7 +423,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class="user-header">
-                                        @if (isset(Auth::user()->info->image) && !empty(Auth::user()->info->image))
+  @if (isset(Auth::user()->info->image) && !empty(Auth::user()->info->image))
                                             <div class="avatar avatar-sm">
                                                 <img src="{{ asset('uploads/photo/' . Auth::user()->info->image) }}"
                                                     class="avatar-img rounded-circle" alt="image" width="150px"
@@ -460,6 +463,8 @@
 
                     @endif
                 @endif
+                {{-- <h1>{{Auth::user()}}</h1> --}}
+
             </nav>
         </header>
 
@@ -580,7 +585,7 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-6">
                                 <div class="copyright-text">
-                                    <p class="mb-0">&copy; 2021 <a href="index.html">wecare</a>. All rights reserved.
+                                    <p class="mb-0">&copy; 2021 <a href="http://127.0.0.1:8000/landing">wecare</a>. All rights reserved.
                                     </p>
                                 </div>
                             </div>

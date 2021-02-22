@@ -100,7 +100,7 @@
                                                 </td>
                                                 
 												<td>
-                       @if(isset($onePayment->info->image))                              
+                       @if(isset($onePayment->PaymentUser->info->image))                              
 <img class="avatar-xs rounded-circle" src="{{asset('uploads/photo/'.$onePayment->PaymentUser->info->image)}}" alt=""> {{$onePayment->PaymentUser->name}}
 
 @else
@@ -114,7 +114,7 @@
                                                 </td>
                                                 
 												<td>{{$onePayment->created_at}}</td>
-												<td><strong>{{$onePayment->service_price}}</strong></td>
+												<td><strong>{{$onePayment->service_price}}JD</strong></td>
 												<td>
 										<span class="badge bg-success-light">{{$onePayment->status}}</span>
 												</td>

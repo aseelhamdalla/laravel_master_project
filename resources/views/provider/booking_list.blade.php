@@ -125,7 +125,7 @@
 										@endif
 
 											{{-- <li><span>Booking time</span> 12:00:00 - 13:00:00</li> --}}
-											<li><span> Amount</span>{{$onebook->service_price}} </li>
+											<li><span> Amount</span>{{$onebook->service_price}}JD </li>
                                             <li><span> Location</span>{{$onebook->service_location}} </li>
 
 							         	<li><span>Provider Phone</span> {{$onebook->provider_phone}}</li>

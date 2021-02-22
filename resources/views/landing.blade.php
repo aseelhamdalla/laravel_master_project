@@ -202,7 +202,7 @@
 													1519987239570/icon.png?format=1500w"  class="avatar-img rounded-circle"  alt="image" width="50px" height="50px">													</a>
 
 												@endif
-			  <span class="service-price">{{$s->price}}</span>
+			  <span class="service-price">{{$s->price}}JD</span>
 											</div>
 											<div class="cate-list">
 								<a class="bg-yellow" href="service-details.html">	<a class="bg-yellow" href="service-details.html">{{$s->name}}</a></a>
@@ -226,6 +226,13 @@
 								  	@endfor
 				  
 									<span class="d-inline-block average-rating">({{round($s->reviewService->avg('rating'))}})</span>
+
+									@else 
+									<i class="fas fa-star "></i>
+									<i class="fas fa-star "></i>
+									<i class="fas fa-star "></i>
+									<i class="fas fa-star "></i>
+									<i class="fas fa-star "></i>
 									@endif
 										</div>
 										

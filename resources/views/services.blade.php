@@ -80,21 +80,23 @@
 					</div>
 					<div class="col-xl-9 col-md-8">
 						<h4 class="widget-title">My Services</h4>
+				
 						<ul class="nav nav-tabs menu-tabs">
-							{{-- <li class="nav-item active">
-								<a class="nav-link" href="my-services.html">Active Services</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="my-services-inactive.html">Inactive Services</a>
-							</li> --}}
+					
 						</ul>
 					
-
 						<div class="row">
-							{{-- @if(empty($services))
-						return "no";
-							@endif --}}
+							@if(count($services)== 0)
+						
+                 
+							<h6>There is no services yet for you {{Auth::user()->name}}</h6>
+
+						@endif	
+				
 							@foreach($services as $service)
+
+		
+
 							<div class="col-lg-4 col-md-6">
 				
 								<div class="service-widget">
@@ -104,34 +106,45 @@
 										</a>
 										<div class="item-info">
 											<div class="service-user">
-												{{-- <a href="javascript:void(0);">
-													<img src="assets/img/provider/provider-01.jpg" alt="">
-												</a> --}}
-												<span class="service-price">{{$service->price}}</span>
+												<a href="javascript:void(0);">
+													<img alt="profile image" src="{{asset('uploads/photo/'.Auth::user()->info->image)}}" class="avatar-lg rounded-circle">
+												</a>
+												<span class="service-price">{{$service->price}}JD</span>
 											</div>
-											{{-- <div class="cate-list">
-												<a class="bg-yellow" value="{{$service->category_id}}">{{$service->category_id}}</a>
-											</div> --}}
+											<div class="cate-list">
+				<a class="bg-yellow" value="{{$service->category_id}}">	{{$service->name}}</a>
+											</div>
 										</div>
 									</div>
 									<div class="service-content">
-										<h3 class="title text-truncate">
-											{{$service->name}}
-										</h3>
-										<h6 class="title text-truncate">
+										<p class="title text-truncate">
+										
+										</p>
+										<p class="title text-truncate">
 									{{$service->provider_name}}
-										</h6>
-							
+	
+										</p>
+								
+				
 										<div class="rating">
-								{{-- {{$reviewSum}} --}}
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<span class="d-inline-block average-rating">(4.3)</span>
+							
+					@if(isset($service->reviewService) && !empty($service->reviewService)  )
+
+							
+											@for($star= 1 ;$star <= 5 ; $star++ )
+											@if($service->reviewService->avg('rating') >= $star)
+											<i class="fas fa-star filled "></i>
+											@else
+										  <i class="fas fa-star "></i>
+										  @endif
+											  @endfor
+						  
+		<span class="d-inline-block average-rating">({{$service->reviewService->avg('rating')}})</span>
+										
+							
+											@endif
 										</div>
-	                          
+	                         
 										<div class="user-info">
 											<div class="service-action">
 												<div class="row">
@@ -167,13 +180,17 @@
 
 
 					
-{{-- 
-								@if(empty($services))
-						return "no";
-							@endif --}}
+
+								@if(empty($service->id)|| !isset($service->id))
+						
+                 
+				<h6>There is no services yet for you {{Auth::user()->name}}</h6>
+						
+							
+					@else
 <a id="delete_btn" href="{{'delet/'.$service->id}}"><button type="button" class="btn btn-danger si_accept_cancel" >OK</button></a>
 
-					
+							@endif
 										</div>
 									</div>
 								</div>

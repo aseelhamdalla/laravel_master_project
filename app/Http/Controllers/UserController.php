@@ -20,9 +20,24 @@ class UserController extends Controller
         $categories = Category::all()->take(6);
         $services = service::all()->take(3);
 
+        if (Auth::check()) {  
+             $collection = collect([]);
+            foreach (auth()->user()->Notifications as $notification) {
+                // dd($notification);
+                if (isset($notification->data['user']['id'])) {
+                    // return  $notification->data['user']['id'];
+                    $id = $notification->data['user']['id'];
+                   $userImage =  user::find($id)->info->image;
 
-
-
+               
+                 
+                    $collection->put($id,$userImage);
+          
+            } }
+                // dd($collection->all());
+             session(['image' =>  $collection]) ;   
+            
+        }
         return view('landing', compact('categories', 'services'));
     }
 
@@ -57,13 +72,17 @@ class UserController extends Controller
         $payments = payment::all();
         $paymentSort = $payments->sortByDesc('id')->values();
 
+        if (isset($providerInfo)) {
+            foreach ($paymentSort as $one) {
+                $poviderNumber = $one->provider_id;
 
-        foreach ($paymentSort as $one) {
-            $poviderNumber = $one->provider_id;
-            $providerInfo = user_info::where('user_id', '=', $poviderNumber)->first();
-          }
+                $providerInfo = user_info::where('user_id', '=', $poviderNumber)->first();
+            }
+        } else {
+            $providerInfo = "";
+        }
 
         //    dd($BookingSort);
-        return view('dashboardPages/index', compact('users', 'services', 'providerCount', 'custmerCount', 'BookingSort','paymentSort','providerInfo'));
+        return view('dashboardPages/index', compact('users', 'services', 'providerCount', 'custmerCount', 'BookingSort', 'paymentSort', 'providerInfo'));
     }
 }

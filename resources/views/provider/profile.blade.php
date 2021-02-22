@@ -134,50 +134,32 @@
 								</div>
 								<div class="form-group col-xl-6">
 									<label class="mr-sm-2">Mobile Number</label>
-									<input  name="phone"  class="form-control no_only" type="text" value="" >
+									<input  name="phone"  class="form-control no_only" type="text" value="{{ old('phone') }}" >
 
 									<div style="color:red; margin:15px  0 15px 0">{{$errors->first('phone')}}</div>
 
 								</div>
 								<div class="form-group col-xl-6">
 									<label class="mr-sm-2">Date of birth</label>
-									<input type="date" class="form-control provider_datepicker" name="date_of_birth" autocomplete="off" value="">
+									<input type="date" class="form-control provider_datepicker" name="date_of_birth" autocomplete="off" value="{{ old('date_of_birth') }}" >
 									<div style="color:red; margin:15px  0 15px 0">{{$errors->first('date_of_birth')}}</div>
 
 								</div>
 								<div class="form-group col-xl-6">
 									<label class="mr-sm-2">National Number</label>
-									<input type="text" class="form-control provider_datepicker" name="nid" autocomplete="off" value="">
+									<input type="text" class="form-control provider_datepicker" name="nid" autocomplete="off" value="{{ old('nid') }}" >
 									<div style="color:red; margin:15px  0 15px 0">{{$errors->first('nid')}}</div>
 
 								</div>
 
 
-								{{-- <div class="col-xl-12">
-									<h5 class="form-title">Service Info</h5>
-								</div>
-								<div class="form-group col-xl-6">
-									<label class="mr-sm-2">What Service do you Provide?</label>
-									<input type="text" class="form-control provider_datepicker" autocomplete="off" value="">
-
-								</div> --}}
-								{{-- <div class="form-group col-xl-6">
-									<label class="mr-sm-2">Category</label>
-									<select name="category_id" class="form-control select provider_category" title="Category">
-										<option value="">Select Category</option>
-
-										@foreach($categories as $categorie )
-										<option value={{$categorie->id}}>{{$categorie->name}}</option>
-										@endforeach
-									</select>
-					
-								</div> --}}
+							
 								<div class="col-xl-12">
 									<h5 class="form-title">Address</h5>
 								</div>
 								<div class="form-group col-xl-12">
 									<label class="mr-sm-2">Address</label>
-									<input type="text" class="form-control"  name="address">
+									<input type="text" class="form-control"  name="address" value="{{ old('address') }}" >
 									<div style="color:red; margin:15px  0 15px 0">{{$errors->first('address')}}</div>
 
 								</div>

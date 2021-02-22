@@ -17,7 +17,7 @@ class CreateAvalabilitiesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id'); 
             $table->text("day");
-            $table->text("WeekDays");
+            // $table->text("WeekDays");
             
             $table->text("status");
             $table->string('from');

@@ -14,6 +14,6 @@ class payment extends Model
 
     public function PaymentUser(){
 
-        return $this->belongsTo('App\User','provider_id');
+        return $this->belongsTo('App\User','user_id');
     }
 }

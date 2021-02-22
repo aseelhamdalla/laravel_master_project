@@ -161,13 +161,13 @@
 
 
 
-									@if($cancleTime == -86400) 
-									<p style='color:red ; margin-top:2.1rem ;margin-left:5.5rem ;display:none'  ><i class="fas fa-exclamation-triangle" ></i>You can cancel within an  24 hour </p>
-									<a href="{{'delet/'.$onebook->id}}" class="btn btn-sm bg-danger-light"  style='display:none'><i class="fas fa-times"></i> Cancel the Service</a>
+									@if($cancleTime <= 86400) 
+									<p style='color:red ; margin-top:2.1rem ;margin-left:5.5rem ;'  ><i class="fas fa-exclamation-triangle" ></i>You can cancel within an  24 hour </p>
+									<a href="{{'delet/'.$onebook->id}}" class="btn btn-sm bg-danger-light"><i class="fas fa-times"></i> Cancel the Service</a>
 
 									@else
-								<p style='color:red ; margin-top:2.1rem ;margin-left:5.5rem' ><i class="fas fa-exclamation-triangle"></i>You can cancel within an  24 hour </p>
-									<a href="{{'delet/'.$onebook->id}}" class="btn btn-sm bg-danger-light"><i class="fas fa-times"></i> Cancel the Service</a>
+								<p style='color:red ; margin-top:2.1rem ;margin-left:5.5rem ;display:none ' ><i class="fas fa-exclamation-triangle" ></i>You can cancel within an  24 hour </p>
+									<a href="{{'delet/'.$onebook->id}}" class="btn btn-sm bg-danger-light" style='display:none'><i class="fas fa-times"></i> Cancel the Service</a>
 									@endif
 
 							

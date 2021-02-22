@@ -31,13 +31,13 @@
 						<div class="col-6">
 							<div class="about-blk-content">
 								<h4>Experienced and Reliable</h4>
-								<p>bekdmtak.com, is an jordanian company, was founded in 2020 on the 
+								<p>wecare.com, is an jordanian company, was founded in 2020 on the 
 									understanding that quality family and home care is both a fundamental human
 									 need and a key driver of economic growth
 									 and empowerment. When we have a strong caregiving workforce,
 									  all these things are possible.
 
-									  bekdmtak.com offers of an array of services that enable
+									  wecare.com offers of an array of services that enable
  families to find, manage and pay for care and provide 
  employment opportunities for caregivers. These include a 
  robust suite of safety tools and resources, easy ways for 

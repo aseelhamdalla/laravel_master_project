@@ -174,7 +174,7 @@
 											 @endif
 												</td>
 												<td>
-								<div class="font-weight-600">{{$one->service_price}}</div>
+								<div class="font-weight-600">{{$one->service_price}}JD</div>
 												</td>
 											</tr>
 										@endforeach

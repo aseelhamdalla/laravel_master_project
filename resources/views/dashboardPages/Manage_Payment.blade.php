@@ -178,7 +178,7 @@
                               @endif	
                             	</td>
 
-												<td>{{$payment->service_price}}</td>
+												<td>{{$payment->service_price}}JD</td>
 												<td>
 													<label class="badge badge-dark">{{$payment->status}}</label>
                                                 </td>

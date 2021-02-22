@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Category;
 use App\avalability;
 use App\review;
 use Session;
+use Carbon\Carbon;
+use App\booking;
 use App\service;
 use App\User;
 use App\reviews;
@@ -41,7 +44,13 @@ class ServiceController extends Controller
 
   public function proservice($id)
   {
-    $services = User::find($id)->providerServices;
+         $services = User::find($id)->providerServices;
+
+    // if(empty($services) || !isset($services)) {
+    //   return redirect('/noService');
+    // }else{
+      
+    // }
 
     return view('services', compact('services'));
   }
@@ -87,15 +96,14 @@ class ServiceController extends Controller
       $filename = time() . '.' . $extension;
       $file->move('uploads/photo/', $filename);
       $service->image = $filename;
-    }else{
+    } else {
       // return $request;
-      $service->image='';
+      $service->image = '';
     }
     $service->save();
-  
- return redirect('services/'.Auth::user()->id)->with('record_added','New service has been created successfully');
- ;
-//  ->with('record_added','New service has been created successfully');
+
+    return redirect('services/' . Auth::user()->id)->with('record_added', 'New service has been created successfully');;
+    //  ->with('record_added','New service has been created successfully');
   }
 
   /**
@@ -136,23 +144,23 @@ class ServiceController extends Controller
       $ext = $file->getClientOriginalExtension();
       $filename = time() . '.' . $ext;
       $file->move('uploads/photo/', $filename);
-    }else{
+    } else {
       // return $request;
-      $filename=service::find($service)->image;
+      $filename = service::find($service)->image;
     }
 
 
     service::where('id', '=', $service)->update([
-        'name'         => $request->get('name'),
-        'provider_name'   => $request->get('provider_name'),
-        'provider_phone'   => $request->get('provider_phone'),
-        'price'          => $request->get('price'),
-        'location'       => $request->get('location'),
-        'desc'           => $request->get('desc'),
-        'image'     => $filename,
-        // 'category_id'    =>$request->get('category_id'),   
-      ]);
-      Session::flash('record_updated', 'One service has been updated successfully');
+      'name'         => $request->get('name'),
+      'provider_name'   => $request->get('provider_name'),
+      'provider_phone'   => $request->get('provider_phone'),
+      'price'          => $request->get('price'),
+      'location'       => $request->get('location'),
+      'desc'           => $request->get('desc'),
+      'image'     => $filename,
+      // 'category_id'    =>$request->get('category_id'),   
+    ]);
+    Session::flash('record_updated', 'One service has been updated successfully');
     return redirect('services/' . Auth::user()->id);
   }
 
@@ -190,19 +198,23 @@ class ServiceController extends Controller
     if (!empty($providerNo)) {
       $ava = $providerNo->avalable;
     }
-
-
-
+    // dd($ava);
+    foreach ($ava as $avalability) {
+      if (booking::where([['avalability_id', $avalability->id], ['is_taken', 'yes']])->exists()) {
+        avalability::where('id', '=', $avalability->id)->update(['status' => 'not avalable']);
+      }
+    }
     $services = service::find($id);
     // dd($services);
     $catName = $services->cat->name;
     $RelatedServices = $services->cat->service;
-    // dd($RelatedServices);
+
     $reviews = review::where('service_id', '=', $id)->get();
 
     $avg = review::where('service_id', '=', $id)->avg('rating');
     $reviewSum = round($avg);
     // dd($reviewSum);
+
     return view('publicPages/single', compact('services', 'ava', 'reviews', 'reviewSum', 'catName', 'RelatedServices'));
   }
 
@@ -230,31 +242,5 @@ class ServiceController extends Controller
     $serviesNo = count($services);
 
     return view('search', compact('services', 'serviesNo'));
-  
   }
-
-
 }
-
-  //   public function sorting($id){
-  //   $services =  $serv = Category::find($id)->service;
-
-  //   $serviesNo = count($serv);
-  //   if (isset($_POST['sort4'])  && !empty($_POST['sort4'])) {
-  //     if ($_POST['sort4'] == "htl") {
-  //       $services =  $serv->sortByDesc('price')->values();
-  //     } elseif ($_POST['sort4'] == "lth") {
-  //       $services =  $serv->sortBy('price')->values();
-  //     } elseif ($_POST['sort4'] == "new") {
-  //       $services =  $serv->sortByDesc('id')->values();
-  //     }
-  //   }
-
-  //   foreach ($serv as $xx) {
-  //     $id = $xx->id;
-  //     $avg = review::where('service_id', '=', $id)->avg('rating');
-  //     $reviewSum = round($avg);
-  //   }
-  //   return view('search', compact('services', 'serviesNo'));}
-  // }
-

@@ -79,8 +79,8 @@ class UserInfoController extends Controller
         //  $user->info()->save($users);
           $user->info()->save($users); 
          } 
-          return redirect ('landing');
-           }
+         return redirect('/provider_dashboard/'.Auth::user()->id);
+        }
          
 
 
@@ -97,10 +97,14 @@ public function show2(User $id){
    $bookingList =booking::where('provider_id',$id)->get();
    $bookingCount=count($bookingList);
 
-
+if(isset(User::find($id)->ProviderPayment->service_price) && (User::find($id)->ProviderPayment->service_price)!== null  ){
    $lastPayment= User::find($id)->ProviderPayment->sortByDesc('id')->first()->service_price;
-
    $lastBookingDate= User::find($id)->ProviderPayment->sortByDesc('id')->first()->created_at;
+  }else{
+    $lastPayment= ': 0';
+    $lastBookingDate='"No payment yet"';
+  }
+
    $user=User::where("id",$id)->get();
    foreach ($user as $one){
     $RegDate = $one->created_at;
@@ -113,14 +117,6 @@ public function show2(User $id){
 //  ** *** *****************************************************
 
 
-// public function categoryforservice()
-// {
-//     $viewProfile = user_info::find($id); 
-//     $categories= Category::all();
-//   return view('provider.add_service',[
-//       'categories' => Category::all(),
-//   ]);
-// }
 
 public function showmain(user_info $id){
      $viewProfile = user_info::find($id);

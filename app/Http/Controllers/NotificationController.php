@@ -12,11 +12,12 @@ class NotificationController extends Controller
 
     $notifications = auth()->user()->notifications()->orderBy('created_at','desc')->get();
 
-//     foreach( $notifications as $one){
-//     }
-//   return $one->data['user'];
-
-    return view('notification/AllNotification')->with('notifications',$notifications);
+    foreach(auth()->user()->unreadNotifications as $notification) {
+    $id = $notification->data['user']['id']; 
+    }        
+ $userImage =  user::find($id)->info->image;
+// dd($userImage);
+    return view('notification/AllNotification',compact('notifications','userImage'));
    }
 
    public function showAllNotificationForUser(){
@@ -25,4 +26,16 @@ class NotificationController extends Controller
   
       return view('notification/AllNotificationForUser')->with('notifications',$notifications);
      }
+
+
+     public function picturToPublicMain(){
+
+        foreach(auth()->user()->unreadNotifications as $notification) {
+        $id = $notification->data['user']['id']; 
+        }        
+     $userImage =  user::find($id)->info->image;
+   //  return $userImage;
+   return view('layout/public_main',compact('userImage'));
+     }
+
 }

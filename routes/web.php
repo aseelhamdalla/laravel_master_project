@@ -175,6 +175,8 @@ Route::get('/profile/{id}','UserInfoController@create');
 Route::post('/update/{id}', 'UserInfoController@update');
 Route::get('/provider_dashboard/{id}', 'UserInfoController@show2');
 Route::get('/public_main/{id}', 'UserInfoController@showmain');
+// Route::get('/public_main/{id}', 'UserInfoController@showmain');
+
 Route::get('/add_service/{id}', 'UserInfoController@showservice');
 Route::get('/services/{id}', 'ServiceController@proservice');
 Route::get('provider_dashboard/booking_list/{id}', 'BookingController@showBookList');
@@ -191,7 +193,9 @@ Route::get('/noBookingUser', function () {
     return view('noBookingUser');
 });
 
-
+Route::get('/noService', function () {
+    return view('noService');
+});
 // *******************************************************************
 ////start user profile
 Route::get('/user/dashboard/{id}','CustomerController@index');

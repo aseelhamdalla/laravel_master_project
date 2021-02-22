@@ -150,7 +150,7 @@
 
                                             <td>{{$booking->service_name}}</td>
                                             <td>{{$booking->provider_name}}</td>
-                                            <td>{{$booking->service_price}}</td>
+                                            <td>{{$booking->service_price}}JD</td>
                       
 
                                             <td>

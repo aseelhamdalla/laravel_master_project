@@ -13,8 +13,9 @@
 								<h1>{{$services->name}}</h1>
 								<address class="service-location"><i class="fas fa-location-arrow"></i> {{$services->location}}</address>
 								<div class="rating">
-									{{-- {{$reviewSum}} --}}
+									{{-- {{$reviewSum}} --}}	
 								@if(isset($reviewSum) && !empty($reviewSum))
+							
 									@for($star= 1 ;$star <= 5 ; $star++ )
 								
 									@if($reviewSum >= $star)
@@ -30,7 +31,7 @@
 								</div>
 								<div class="service-cate">
 									@if(isset($catName))
-									<a href="search.html">{{$catName}}</a>
+									<a href="">{{$catName}}</a>
 								@endif
 								</div>
 							
@@ -176,12 +177,12 @@
 											<div class="card-body">
 
 												@foreach($reviews  as $review)
-												
+												{{$review->Userreview->info}}
 												<div class="review-list">
 													
                                                     <div class="review-img">
 @if(isset($review->Userreview->info->image)  && !empty($review->Userreview->info->image) )
-
+     
 	<img class="rounded-circle" src="{{asset('uploads/photo/'.$review->Userreview->info->image) }}" alt="">
 														@else
 <img src="https://static1.squarespace.com/static/
@@ -232,7 +233,7 @@
 					<div class="col-lg-4 theiaStickySidebar">
 						<div class="sidebar-widget widget">
 							<div class="service-amount">
-								<span>{{$services->price}}</span>
+								<span>{{$services->price}}JD</span>
 							</div>
 							@if(auth()->check())
 							<div class="service-book">
@@ -285,7 +286,7 @@
 
 								<ul>
 @if(App\avalability::where([['id',$avalable->id] ,['status' , 'avalable']])->exists())
-<li><span>{{$avalable->WeekDays}} &nbsp;&nbsp;&nbsp;  {{$avalable->day}}</span>{{$avalable->from}} - {{$avalable->to}}</li>
+<li><span>{{ Carbon\Carbon::parse($avalable->day)->format('l') }} &nbsp;&nbsp;&nbsp;  {{$avalable->day}}</span>{{$avalable->from}} - {{$avalable->to}}</li>
 
                     @endif
 			
@@ -342,7 +343,7 @@
 							{{-- <a href="#">
 								<img src="{{asset('uploads/photo/'.$one->ProviderService->info->image)}}" alt="">
 							</a> --}}
-							<span class="service-price">{{$one->price}}</span>
+							<span class="service-price">{{$one->price}}JD</span>
 						</div>
 						<div class="cate-list">
 							<a class="bg-yellow" href="service-details.html">{{$catName}}</a>
@@ -354,17 +355,24 @@
 						<a href="service-details.html">{{$one->name}}</a>
 					</h3>
 					<div class="rating">
-						<i class="fas fa-star filled"></i>
-						<i class="fas fa-star filled"></i>
-						<i class="fas fa-star filled"></i>
-						<i class="fas fa-star filled"></i>
-						<i class="fas fa-star"></i>
-						<span class="d-inline-block average-rating">(4.5)</span>
+						@if(isset($one->reviewService) && !empty($one->reviewService)  )
+
+							
+						@for($star= 1 ;$star <= 5 ; $star++ )
+						@if($one->reviewService->avg('rating') >= $star)
+						<i class="fas fa-star filled "></i>
+						@else
+					  <i class="fas fa-star "></i>
+					  @endif
+						  @endfor
+	  
+						<span class="d-inline-block average-rating">({{$one->reviewService->avg('rating')}})</span>
+						@endif
 					</div>
 					<div class="user-info">
 						<div class="row">
-							<span class="col-auto ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx30</span></span>
-							<span class="col ser-location"><span>Kalispell, Montana</span>  <i class="fas fa-map-marker-alt ml-1"></i></span>
+							<span class="col-auto ser-contact"><i class="fas fa-phone mr-1"></i> <span>+9627xxxxxxx</span></span>
+							<span class="col ser-location"><span>{{$one->location}}</span>  <i class="fas fa-map-marker-alt ml-1"></i></span>
 						</div>
 					</div>
 				</div>

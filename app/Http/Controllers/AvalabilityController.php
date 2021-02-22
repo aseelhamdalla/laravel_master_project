@@ -37,7 +37,7 @@ class AvalabilityController extends Controller
     {
         $avalable                      = new avalability();
         $avalable->day                =$request->get('day'); 
-        $avalable->WeekDays           =$request->get('WeekDays'); 
+        // $avalable->WeekDays           =$request->get('WeekDays'); 
         
         $avalable->from               =$request->get('from'); 
         $avalable->to                 =$request->get('to');

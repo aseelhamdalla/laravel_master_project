@@ -21,10 +21,14 @@ class CustomerController extends Controller
       $id=Auth::user()->id;
       $bookingList =booking::where('user_id',$id)->get();
       $bookingCount=count($bookingList);
-    //  $Booking= booking::where('user_id',$id)->orderBy('created_at', 'desc')->first();
+ if(isset(User::find($id)->bookings->service_price) && (User::find($id)->bookings->service_price)!== null  ){
+
     $lastBooking= User::find($id)->bookings->sortByDesc('id')->first()->service_price;
     $lastBookingDate= User::find($id)->bookings->sortByDesc('id')->first()->created_at;
-
+  }else{
+    $lastBooking= ': 0';
+    $lastBookingDate='"No payment yet"';
+  }
      $reviews =review::where('user_id',$id)->get();
      $reviewsCount=count($reviews);
      $user=User::where("id",$id)->get();
@@ -95,7 +99,8 @@ class CustomerController extends Controller
      
         //  $user->info()->save($users);
           $user->info()->save($users);  } 
-          return redirect ('landing');
+          return redirect('/provider_dashboard/'.Auth::user()->id);
+
     }
 
     /**

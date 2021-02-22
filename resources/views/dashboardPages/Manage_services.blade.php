@@ -136,7 +136,7 @@
                                             <td>{{$s->location}}</td>
                                          
                                             <td>{{$s->category_id}}</td>
-                                            <td>{{$s->price}}</td>
+                                            <td>{{$s->price}}JD</td>
                                             <td>{{$s->created_at}}</td>
                                             {{-- <td>
                                                 <div class="status-toggle">

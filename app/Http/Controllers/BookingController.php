@@ -110,16 +110,13 @@ class BookingController extends Controller
   {
     $y = $custmerBooking   = User::find($id)->bookings->sortByDesc('id')->values();
     // dd($y);
-    if (!empty($y) && isset($y)) {
+    if($y ->isNotEmpty()) {
       foreach ($y as $onebook) {
         $poviderNumber = $onebook->provider_id;
         $providerInfo = user_info::where('user_id', '=', $poviderNumber)->first();
         // dd($providerInfo);
       }
 
-      // if (!isset($providerInfo) || $providerInfo == null) {
-      //   return redirect('/noBookingUser');
-      // }
       if (isset($_GET['sort2'])  && !empty($_GET['sort2'])) {
         if ($_GET['sort2'] == "Pending"  && !empty($providerInfo)) {
           $y = $custmerBooking->where('status', 'pending')->values();
@@ -131,32 +128,37 @@ class BookingController extends Controller
           $y = $custmerBooking   = User::find($id)->bookings;
         }
       };
-    } else {
+      $currentdate = date('Y-m-d');
+      // dd($currentdate);
+      foreach ($y as $onebook) {
+        $avalabilityForBooking = $onebook->avalability->day;
+        // ******TO make booking complete after time************
+        $hourdiff =  ((strtotime($avalabilityForBooking)) - (strtotime($currentdate)));
+        //  dd($hourdiff);
+        $id = $onebook->id;
+        if ($hourdiff <= 0) {
+          booking::where('id', '=', $id)->update(['status' => 'completed']);
+        }
+        // ******TO make booking  cancle within 24 ***********
+       
+     if(!empty($_GET['sort2'])){
+          // dd('yes');
+        $cancleTime=((strtotime($currentdate)) - (strtotime($avalabilityForBooking))); 
+      }else{
+        // dd('no');
+          $cancleTime='';
+        }
+      }
 
+
+    } else {
+      $providerInfo ='';
       return redirect('/noBookingUser');
     }
 
-    // print_r $custmerBooking ;
+  
 
-    $currentdate = date('Y-m-d');
-    // dd($currentdate);
 
-    foreach ($y as $onebook) {
-      $avalabilityForBooking = $onebook->avalability->day;
-      // dd($avalabilityForBooking);
-
-      // ******TO make booking complete after time************
-      $hourdiff =  ((strtotime($avalabilityForBooking)) - (strtotime($currentdate)));
-      //  dd($hourdiff);
-      $id = $onebook->id;
-      if ($hourdiff <= 0) {
-        booking::where('id', '=', $id)->update(['status' => 'completed']);
-      }
-
-      // ******TO make booking  cancle within 24 ***********
-      $cancleTime=  ((strtotime($currentdate)) - (strtotime($avalabilityForBooking)));
-    //  dd($cancleTime);
-    }
 
 
     return view('user/my_booking', compact('y', 'providerInfo' , 'cancleTime'));

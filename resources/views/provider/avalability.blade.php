@@ -88,7 +88,7 @@
 
 
 
-																<td class="w-180">
+																{{-- <td class="w-180">
 																	Day
 																	<span class="time-select mb-1">	</span>
 																	
@@ -103,7 +103,7 @@
 																			<option value="Thursday">Thursday</option>
 																			<option value="Frieday">Friday</option>
 															</select>
-																</td>
+																</td> --}}
 
 
 																<td class="w-180">	

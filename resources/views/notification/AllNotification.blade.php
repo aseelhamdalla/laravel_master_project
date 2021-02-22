@@ -20,7 +20,7 @@
                         <div class="notificationlist">
                             <div class="inner-content-blk position-relative">
                                 <div class="d-flex text-dark">
-                   {{-- <img class="rounded" src="{{asset('uploads/photo/'. ($notification->data['user'])->info->image)}}" width="50" alt=""> --}}
+                   <img class="rounded" src="{{asset('uploads/photo/'.$userImage)}}" width="50" alt="">
                                     <div class="noti-contents">
                            <h3><strong>{{$notification->data['user']['name'] }} booked
                                             {{$notification->data['booking']['service_name']}}</strong></h3>

@@ -51,9 +51,9 @@
 											<option value="">Select Time</option>
 
 @foreach($avalabilites as $avalability)
-@if(App\avalability::where([['id',$avalability->id] ,['status' , 'avalable']])->exists()){
+@if(App\avalability::where([['id',$avalability->id] ,['status' , 'avalable']])->exists())
 
-<option value={{$avalability->id}}>{{$avalability->from}}-{{$avalability->to}}</option>}
+<option value='{{$avalability->id}}'>{{$avalability->day}} | ({{$avalability->from}}-{{$avalability->to}})</option>
 @endif
 @endforeach
 											</select>
