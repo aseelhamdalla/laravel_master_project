@@ -273,7 +273,9 @@
 					<div class="col-lg-12">
 						<div class="heading howitworks">
 							<h2>How It Works</h2>
-							<span>Aliquam lorem ante, dapibus in, viverra quis</span>
+							<span>We've got you and your home covered, no matter what's going on in the world.
+
+							</span>
 						</div>
 						<div class="howworksec">
 							<div class="row">
@@ -284,7 +286,7 @@
 											<img src="{{asset('public_theme/img/icon-1.png')}}" alt="">
 										</div>
 										<h3>Choose What To Do</h3>
-										<p>Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.</p>
+										<p>Whatever your home needs - you can relax knowing help is just a click or a phone call away..</p>
 									</div>
 								</div>
 								<div class="col-lg-4">
@@ -294,7 +296,7 @@
 											<img src="{{asset('public_theme/img/icon-2.png')}}" alt="">
 										</div>
 										<h3>Find What You Want</h3>
-										<p>Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.</p>
+										<p>Whether it’s taking care of your plumbing and Cleaning, painting, window treatments or electrics , our Home Experts are ready to get your job done.</p>
 									</div>
 								</div>
 								<div class="col-lg-4">
@@ -304,7 +306,7 @@
 											<img src="{{asset('public_theme/img/icon-3.png')}}" alt="">
 										</div>
 										<h3>Amazing Places</h3>
-										<p>Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.</p>
+										<p> We’re even here to help if you need any repair,We can provide you with regular work in your area, all year round.</p>
 									</div>
 								</div>
 							</div>

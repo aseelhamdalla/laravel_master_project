@@ -26,10 +26,11 @@
                         <div class="notificationlist">
                             <div class="inner-content-blk position-relative">
                                 <div class="d-flex text-dark">
-                   {{-- <img class="rounded" src="{{asset('uploads/photo/'.$notification->data['Provider']['id']->User->info->image)}}" width="50" alt=""> --}}
+                                    <img class="rounded" src="{{asset('uploads/photo/'.$userImage)}}" width="50" alt="">
+
                  <div class="noti-contents">
 <h3><strong>{{$notification->data['Provider']['name']}}
-                            Accepted your booking for {{ $notification->data['service']['name'] }}
+                            Accepted your booking for {{$notification->data['service']['name'] }}
                                                            service</strong></h3>
                                         <span>{{ $notification->created_at }}</span>
                                     </div>
@@ -46,7 +47,8 @@
                      <div class="notificationlist">
                          <div class="inner-content-blk position-relative">
                              <div class="d-flex text-dark">
-                {{-- <img class="rounded" src="{{asset('uploads/photo/'. ($notification->data['user'])->info->image)}}" width="50" alt=""> --}}
+                                <img class="rounded" src="{{asset('uploads/photo/'.$userImage)}}" width="50" alt="">
+
               <div class="noti-contents">
 <h3><strong>{{ $notification->data['Provider']['name'] }}
     Rejected your booking for {{ $notification->data['service']['name'] }}

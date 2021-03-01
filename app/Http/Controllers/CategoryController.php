@@ -20,7 +20,7 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $categories = Category::Paginate(3);
+        $categories = Category::all();
         return view('publicPages.catPublic', [
             'categories' => $categories,
         ]);

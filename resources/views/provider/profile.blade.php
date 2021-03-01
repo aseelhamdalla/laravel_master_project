@@ -130,7 +130,7 @@
 								</div>
 								<div class="form-group col-xl-6">
 									<label class="mr-sm-2">Upload photo</label>
-									<input class="form-control-file"  type="file"  name="image">
+									<input class="form-control-file"  type="file"  name="image"  value="{{ old('image') }}">
 								</div>
 								<div class="form-group col-xl-6">
 									<label class="mr-sm-2">Mobile Number</label>

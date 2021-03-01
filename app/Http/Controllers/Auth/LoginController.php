@@ -41,11 +41,18 @@ class LoginController extends Controller
         if($request->isMethod('post')){
             $data=$request->input();
             // dd($data);
-            if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])){
+            if(Auth::attempt(['email' => $data['email'] , 'password' => $data['password']])){ 
+                if(Auth::user()->role == 1){
+                  return redirect('/dashboardPages');
+      
+                }   
                 return redirect('landing');
              }else{
                 return redirect('/login')->with('flash_message_error','Invalide email or password');
             }
+
+            
+      
        }}
 
        

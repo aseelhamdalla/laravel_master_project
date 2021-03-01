@@ -63,11 +63,11 @@
                                 <i class="far fa-clock"></i> <span>Availability</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="provider-reviews.html" class="nav-link">
                                 <i class="far fa-star"></i> <span>Reviews</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="/ProviderPayment/{{Auth::user()->id}}" class="nav-link">
                                 <i class="fas fa-hashtag"></i> <span>Payment</span>

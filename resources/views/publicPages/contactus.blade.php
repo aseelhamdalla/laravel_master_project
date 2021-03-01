@@ -81,7 +81,7 @@
 									<i class="fab fa-skype"></i>
 									<div class="contact-data">
 										<h4>Skype</h4>
-										<p>be5dmtak</p>
+										<p>wecare</p>
 									</div>
 								</div>
 								<hr>
@@ -89,7 +89,7 @@
 									<i class="far fa-envelope"></i>
 									<div class="contact-data">
 										<h4>Email</h4>
-										<p>be5dmtak@example.com</p>
+										<p>wecare@example.com</p>
 									</div>
 								</div>
 							</div>

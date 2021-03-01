@@ -146,7 +146,7 @@
 											@foreach($BookingSort as $one )
 											<tr>
 												<td>    
-							 	@if(isset($one->info->image))                             
+							 	@if(isset($one->info->image) && isset($one->userBook->name))                             
 													<a href="#" class="avatar avatar-sm mr-2">
 
 					<img class="avatar-img rounded-circle"  src="{{asset('uploads/photo/'.$one->userBook->info->image)}}" alt="">

@@ -31,7 +31,7 @@
 						<div class="col-6">
 							<div class="about-blk-content">
 								<h4>Experienced and Reliable</h4>
-								<p>wecare.com, is an jordanian company, was founded in 2020 on the 
+								<p>wecare.com, is an jordanian company, was founded in 2021 on the 
 									understanding that quality family and home care is both a fundamental human
 									 need and a key driver of economic growth
 									 and empowerment. When we have a strong caregiving workforce,
@@ -70,10 +70,10 @@
 					<div class="col-6">
 						<span>Free Consultation</span>
 						<h2>Ready to start your dream project?</h2>
-						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Nunc placerat mi id nisi interdum mollis</p>
+						<p>Our customers trust us to fix, maintain and look after their home - whether that's plumbing and electrics, painting and cleaning or even child care. If you're a landlord looking to protect your rental property, we can arrange cover for you too!</p>
 					</div>
 					<div class="col-6 call-us-btn">
-						<a href="javascript:void(0);" class="btn btn-call-us">Request A Free Consultation</a>
+						<a href="http://127.0.0.1:8000/contactus" class="btn btn-call-us">Request A Free Consultation</a>
 					</div>
 				</div>
 			</div>
@@ -97,7 +97,7 @@
 											<img src="{{asset('public_theme/img/icon-1.png')}}" alt="">
 										</div>
 										<h3>Choose What To Do</h3>
-										<p>Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.</p>
+										<p>Whatever your home needs - you can relax knowing help is just a click or a phone call away.</p>
 									</div>
 								</div>
 								<div class="col-lg-4">
@@ -107,7 +107,7 @@
 											<img src="{{asset('public_theme/img/icon-2.png')}}" alt="">
 										</div>
 										<h3>Find What You Want</h3>
-										<p>Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.</p>
+										<p>Whether it’s taking care of your plumbing and Cleaning, painting, window treatments or electrics , our Home Experts are ready to get your job done.</p>
 									</div>
 								</div>
 								<div class="col-lg-4">
@@ -117,7 +117,7 @@
 											<img src="{{asset('public_theme/img/icon-3.png')}}" alt="">
 										</div>
 										<h3>Amazing Places</h3>
-										<p>Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.</p>
+										<p>We’re even here to help if you need any repair,We can provide you with regular work in your area, all year round.</p>
 									</div>
 								</div>
 							</div>

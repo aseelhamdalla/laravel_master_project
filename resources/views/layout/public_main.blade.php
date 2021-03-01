@@ -140,10 +140,15 @@
                                           <span class="avatar avatar-md">
                     
                                         
-                           
+                                            
+                                            @foreach(session('image') as $key=>$value)
+                                          
+                                            {{-- {{session('image')}} --}}
+                                            @if($key == $notification->data['user']['id'])
                <img class="avatar-lg rounded-circle" alt=""
-                 src="{{asset('uploads/photo/'.session('image') )}}" > 
-              
+                 src="{{asset('uploads/photo/'.$value )}}" > 
+                 @endif
+               @endforeach
 
                                                             </span>
                                                             <div class="media-body">
@@ -182,8 +187,14 @@
                                                         href="{{ '/provider_dashboard/booking_list/' . $notification->data['booking']['provider_id'] }}">
                                                         <div class="media">
                                                             <span class="avatar avatar-sm">
-                                                                <img class="avatar-lg rounded-circle" alt=""
-                                                                src="{{asset('uploads/photo/'.session('image') )}}" > 
+                                                                @foreach(session('image') as $key=>$value)
+                                          
+                                                                {{-- {{session('image')}} --}}
+                                                                @if($key == $notification->data['user']['id'])
+                                   <img class="avatar-lg rounded-circle" alt=""
+                                     src="{{asset('uploads/photo/'.$value )}}" > 
+                                     @endif
+                                   @endforeach
                                                             </span>
                                                             <div class="media-body">
                                                                 <p class="noti-details"> <span
@@ -294,16 +305,22 @@
                                             <li style="background-color:lightgray" class="notification-message">
 
 
-                                                @foreach (auth()->user()->unreadNotifications as $notification)
+           @foreach (auth()->user()->unreadNotifications as $notification)
                                                     @if ($notification->type === 'App\Notifications\AcceptToService')
-                                                        <a href="{{ '/my_booking/' . Auth::user()->id }}">
+                              <a href="{{ '/my_booking/' . Auth::user()->id }}">
 
                 <div class="media">
           <span class="avatar avatar-md">
       {{-- @if (isset(Auth::user()->info->image) && !empty(Auth::user()->info->image)) --}}
                                                                      
-               <img class="avatar-lg rounded-circle" alt=""
-               src="{{asset('uploads/photo/'.session('image') )}}" > 
+      @foreach(session('image') as $key=>$value)
+                                          
+      {{-- {{session('image')}} --}}
+      @if($key == $notification->data['user']['id'])
+<img class="avatar-lg rounded-circle" alt=""
+src="{{asset('uploads/photo/'.$value )}}" > 
+@endif
+@endforeach
 
                                                                     {{-- @endif --}}
                                                                 </span>
@@ -333,8 +350,14 @@
 
                                                             <div class="media">
                                                                 <span class="avatar avatar-sm">
-                                                                    <img class="avatar-lg rounded-circle" alt=""
-                                                                    src="{{asset('uploads/photo/'.session('image') )}}" > 
+                                                                    @foreach(session('image') as $key=>$value)
+                                          
+                                                                    {{-- {{session('image')}} --}}
+                                                                    @if($key == $notification->data['user']['id'])
+                                       <img class="avatar-lg rounded-circle" alt=""
+                                         src="{{asset('uploads/photo/'.$value )}}" > 
+                                         @endif
+                                       @endforeach
                                                                 </span>
                                                                 <div class="media-body">
 
@@ -363,13 +386,17 @@
 
                                                 @foreach (auth()->user()->unreadNotifications as $notification)
                                                     @if ($notification->type === 'App\Notifications\RejectByProvider')
-                                                        <a href="">
+                                                    <a href="{{ '/my_booking/' . Auth::user()->id }}">
                                                             <div class="media">
                                                                 <span class="avatar avatar-sm">
-                                                                    {{-- @if (isset(Auth::user()->info->image) && !empty(Auth::user()->info->image)) --}}
-                                                                    {{-- <img class="avatar-img rounded-circle" alt="User Image" src="{{asset('uploads/photo/'.$notification->data['Provider']->info->image)}}"> --}}
-
-                                                                    {{-- @endif --}}
+                                                                    @foreach(session('image') as $key=>$value)
+                                          
+                                                                    {{-- {{session('image')}} --}}
+                                                                    @if($key == $notification->data['user']['id'])
+                                       <img class="avatar-lg rounded-circle" alt=""
+                                         src="{{asset('uploads/photo/'.$value )}}" > 
+                                         @endif
+                                       @endforeach
                                                                 </span>
                                                                 <div class="media-body">
                                                                     <p class="noti-details"> <span

@@ -20,23 +20,19 @@ class UserController extends Controller
         $categories = Category::all()->take(6);
         $services = service::all()->take(3);
 
-        if (Auth::check()) {  
-             $collection = collect([]);
-            foreach (auth()->user()->Notifications as $notification) {
+        if (Auth::check()) {
+            $collection = collect([]);
+            foreach (auth()->user()->unreadNotifications as $notification) {
                 // dd($notification);
                 if (isset($notification->data['user']['id'])) {
                     // return  $notification->data['user']['id'];
                     $id = $notification->data['user']['id'];
-                   $userImage =  user::find($id)->info->image;
-
-               
-                 
-                    $collection->put($id,$userImage);
-          
-            } }
-                // dd($collection->all());
-             session(['image' =>  $collection]) ;   
-            
+                    $userImage =  user::find($id)->info->image;
+                    $collection->put($id, $userImage);
+                }
+            }
+            // dd($collection->all());
+            session(['image' =>  $collection]);
         }
         return view('landing', compact('categories', 'services'));
     }
@@ -48,13 +44,7 @@ class UserController extends Controller
         return view('provider.profile', compact('users'));
     }
 
-    // public function avalableshow($id)
-    // {
-    //     $ava=User::find($id)->avalable;
-    //     // return $ava->from;
-    //     // dd($ava);
-    //     return view('publicPages/single',compact('ava'));
-    // }
+
     public function read()
     {
         $users = User::count();

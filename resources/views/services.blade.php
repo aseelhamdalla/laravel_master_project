@@ -88,7 +88,7 @@
 						<div class="row">
 							@if(count($services)== 0)
 						
-                 
+                 php
 							<h6>There is no services yet for you {{Auth::user()->name}}</h6>
 
 						@endif	
@@ -139,7 +139,7 @@
 										  @endif
 											  @endfor
 						  
-		<span class="d-inline-block average-rating">({{$service->reviewService->avg('rating')}})</span>
+		<span class="d-inline-block average-rating">{{$service->reviewService->avg('rating')}}</span>
 										
 							
 											@endif
