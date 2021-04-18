@@ -26,11 +26,11 @@ class NotificationController extends Controller
    {
 
       $notifications = auth()->user()->notifications()->orderBy('created_at', 'desc')->get();
-      foreach(auth()->user()->unreadNotifications as $notification) {
-         $id = $notification->data['Provider']['id']; 
-         }        
+      foreach (auth()->user()->unreadNotifications as $notification) {
+         $id = $notification->data['Provider']['id'];
+      }
       $userImage =  user::find($id)->info->image;
-      return view('notification/AllNotificationForUser',compact('notifications', 'userImage'));
+      return view('notification/AllNotificationForUser', compact('notifications', 'userImage'));
    }
 
 

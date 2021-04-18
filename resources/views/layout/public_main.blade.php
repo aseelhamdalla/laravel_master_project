@@ -687,6 +687,8 @@ toastr.options.extendedTimeOut = 0;
 toastr.success("{!!Session::get('record_updated')!!}");
     </script>
 @endif
+
+
     <script src="{{ asset('public_theme/js/geolocation.js') }}"></script>
 
 </body>

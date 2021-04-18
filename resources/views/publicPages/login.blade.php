@@ -32,7 +32,7 @@
 						<div class="account-header">
 							<div class="account-logo text-center mb-4">
 								<a href="index.html">
-									<img src="{{asset('public_theme/img/logo-icon.png')}}" alt="" class="img-fluid">
+									<img src="{{asset('public_theme/img/logobig.png')}}" alt="" class="img-fluid">
 								</a>
 							</div>
 						</div>

@@ -32,7 +32,7 @@
 						<div class="account-header">
 							<div class="account-logo text-center mb-4">
 								<a href="index.html">
-									<img src="assets/img/logo-icon.png" alt="" class="img-fluid">
+				<img src="{{ asset('public_theme/img/logobig.png') }}" alt="Logo" >
 								</a>
 							</div>
 						</div>
@@ -102,8 +102,8 @@
 <div class="form-group">
 <select name="role" class="form-control"  data-error-class="u-has-error" data-success-class="u-has-success">
 
-<option style="font-size:1.5rem;font-weight: 600;padding:2rem;margin:3rem" value="2"> provider</option>
-<option style="font-size:1.5rem;font-weight: bold;padding:2rem;margin:3rem" value="3"> user</option>
+<option style="font-size:1rem;font-weight: 400;padding:2rem;margin:3rem" value="2"> provider</option>
+<option style="font-size:1rem;font-weight:400;padding:2rem;margin:3rem" value="3"> user</option>
 
 </select>
 

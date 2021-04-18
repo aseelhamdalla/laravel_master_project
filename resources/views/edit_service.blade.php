@@ -41,7 +41,8 @@
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label>Service Location <span class="text-danger">*</span></label>
-											<input name="location"  class="form-control" type="text" value='{{$serviceedit->location}}' >
+											<input  name="location"  class="form-control" type="text" value='{{$serviceedit->location}}'>
+											
 										</div>
 									</div>
 							
@@ -54,7 +55,7 @@
 										<div class="col-lg-12">
 											<div class="form-group">
 												<label>Descriptions <span class="text-danger">*</span></label>
-												<textarea name="desc" class="form-control service-desc" value='{{$serviceedit->desc}}'> </textarea>
+		<textarea name="desc" class="form-control service-desc" value='{{$serviceedit->desc}}' type="text"> </textarea>
 
 											</div>
 										

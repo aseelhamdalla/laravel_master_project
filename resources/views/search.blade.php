@@ -82,30 +82,43 @@
                                                     <span class="service-price">{{$s->price}}JD</span>
 												</div>
 												<div class="cate-list">
-													<a class="bg-yellow" href="service-details.html">{{$s->name}}</a>
+													<a class="bg-yellow" href="service-details.html">{{$s->provider_name}}</a>
 												</div>
 											</div>
 										</div>
 										<div class="service-content">
 											<h3 class="title">
-                                                {{$s->provider_name}}
+                                                {{$s->name}}
 											</h3>
 											<div class="rating">	
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star"></i>		
-												<span class="d-inline-block average-rating">(4.3)</span>
-											</div>
+												@if((round($s->reviewService->avg('rating'))  !== null) && !empty(round($s->reviewService->avg('rating'))))
+						@for($star= 1 ;$star <= 5 ; $star++ )
+													
+															@if(round($s->reviewService->avg('rating')) >= $star)
+																	<i class="fas fa-star filled "></i>
+																@else
+																	  <i class="fas fa-star "></i>
+																	  @endif
+																  @endfor
+																			  
+	<span class="d-inline-block average-rating">({{round($s->reviewService->avg('rating'))}})</span>
+																								@else 
+																								<i class="fas fa-star "></i>
+																								<i class="fas fa-star "></i>
+																								<i class="fas fa-star "></i>
+																								<i class="fas fa-star "></i>
+																								<i class="fas fa-star "></i>
+																								
+												
+																								@endif
+																								
+																							</div>
 											<div class="user-info">
 												<div class="row">	
-													<span class="col-auto ser-contact"><i class="fas fa-phone mr-1"></i> 
-														<span>xxxxxxxx49</span>
+													<span style='margin-left: .5rem'>
+														<i class="fas fa-map-marker-alt ml-2"></i><span style='margin-left: .5rem'>{{$s->location}}</span> 
 													</span>
-													<span class="col ser-location">
-														<span>{{$s->location}}</span> <i class="fas fa-map-marker-alt ml-1"></i>
-													</span>
+												
 												</div>
 											</div>
 										</div>

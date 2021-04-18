@@ -42,14 +42,14 @@
 
 									</div>
 									<div class="cate-count">
-										<i class="fas fa-clone"></i> {{count($categorie->service)}}
+										<i class="fas fa-th-large"></i> {{count($categorie->service)}}
 									</div>
 								</div>
 							</a>
 						</div>
 						@endforeach
 
-					{{-- <div class="pagination" >
+				 {{-- <div class="pagination" >
 						{{$categories->links()}}
 						<ul>
 							<li class="active"><a href="javascript:void(0);">1</a></li>
@@ -58,7 +58,7 @@
 							<li><a href="javascript:void(0);">4</a></li>
 							<li class="arrow"><a href="javascript:void(0);"><i class="fas fa-angle-right"></i></a></li>
 						</ul>
-					</div> --}}
+					</div>  --}}
 				</div>
 			</div>﻿ 
 		</div>﻿ 

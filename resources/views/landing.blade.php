@@ -86,13 +86,14 @@
 									</form>
 								</div>
 								<div class="search-cat">
-									<i class="fas fa-circle"></i>
-									<span>Child Care</span>
-									<a href="http://127.0.0.1:8000/PostsCategories/1">Electrical  Works</a>
-									<a href="search.html">Cleaning</a>
-									<a href="search.html">Blacksmith</a>
-									<a href="search.html">Plumping</a>
-									<a href="search.html">Window Treatments</a>
+									<a href="http://127.0.0.1:8000/PostsCategories/3">Child Care</a>
+								
+									<a href="http://127.0.0.1:8000/PostsCategories/6">Electrical  Works</a>
+									<a href="http://127.0.0.1:8000/PostsCategories/2">Cleaning
+									</a>
+								
+									<a href="http://127.0.0.1:8000/PostsCategories/5">Plumping</a>
+								
 								</div>
 							</div>
 						</div>
@@ -139,7 +140,8 @@
 
 					</div>
 					<div class="cate-count ">
-						<i class="fas fa-clone m-1"></i>{{count($categorie->service)}}
+						<i class="fas fa-th-large"></i>
+						{{count($categorie->service)}}
 					</div>
 				</div>
 		      	</a>
@@ -205,13 +207,13 @@
 			  <span class="service-price">{{$s->price}}JD</span>
 											</div>
 											<div class="cate-list">
-								<a class="bg-yellow" href="service-details.html">	<a class="bg-yellow" href="service-details.html">{{$s->name}}</a></a>
+			<a class="bg-yellow" href="service-details.html">{{$s->provider_name}}</a>
 											</div>
 										</div>
 									</div>
 									<div class="service-content">
 										<h3 class="title text-truncate">
-											{{$s->provider_name}}
+											{{$s->name}}
 										</h3>
 									
 										<div class="rating">

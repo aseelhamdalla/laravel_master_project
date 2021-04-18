@@ -110,11 +110,11 @@ class BookingController extends Controller
   {
     $y = $custmerBooking   = User::find($id)->bookings->sortByDesc('id')->values();
     // dd($y);
-    if($y ->isNotEmpty()) {
+    if ($y->isNotEmpty()) {
       foreach ($y as $onebook) {
         $poviderNumber = $onebook->provider_id;
         $providerInfo = user_info::where('user_id', '=', $poviderNumber)->first();
-        // dd($providerInfo);
+        // dd($providerInfo->image);
       }
 
       if (isset($_GET['sort2'])  && !empty($_GET['sort2'])) {
@@ -140,28 +140,26 @@ class BookingController extends Controller
           booking::where('id', '=', $id)->update(['status' => 'completed']);
         }
         // ******TO make booking  cancle within 24 ***********
-       
-     if(!empty($_GET['sort2'])){
-          // dd('yes');
-        $cancleTime=((strtotime($currentdate)) - (strtotime($avalabilityForBooking))); 
-      }else{
-        // dd('no');
-          $cancleTime='';
-        }
+      $cancleTime = ((strtotime($currentdate)) - (strtotime($avalabilityForBooking)));
+    
       }
-
-
     } else {
-      $providerInfo ='';
+      $providerInfo = '';
+      
       return redirect('/noBookingUser');
     }
 
-  
+
+    if (isset($cancleTime)) {
+    
+    } else {
+      // dd('no');
+      $cancleTime = '';
+    }
 
 
 
-
-    return view('user/my_booking', compact('y', 'providerInfo' , 'cancleTime'));
+    return view('user/my_booking', compact('y', 'providerInfo', 'cancleTime'));
   }
 
 

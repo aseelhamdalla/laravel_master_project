@@ -36,12 +36,6 @@
 	
 								<form id="search_form" action="">
 									<div class="filter-widget">
-										{{-- <div class="filter-list">
-											<h4 class="filter-title">Keyword</h4>
-											<input type="text" class="form-control" placeholder="What are you looking for?">
-										</div> --}}
-
-					
 										<div class="filter-list">
 								<h4 class="filter-title">Sort By</h4>
 									<select name="sort" id="sort"  class="form-control selectbox select">
@@ -138,11 +132,9 @@
 											</div>
 											<div class="user-info">
 												<div class="row">	
-													<span class="col-auto ser-contact"><i class="fas fa-phone mr-1"></i> 
-														<span>+9627xxxxxxx</span>
-													</span>
-													<span class="col ser-location">
-														<span>{{$desc->location}}</span> <i class="fas fa-map-marker-alt ml-1"></i>
+										
+													<span style='margin-left: .5rem'>
+														<i class="fas fa-map-marker-alt ml-2"></i><span style='margin-left: .5rem'>{{$desc->location}}</span> 
 													</span>
 												</div>
 											</div>
@@ -158,79 +150,6 @@
 							</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-							{{-- <div class="row">
-                                @foreach($serv as $s)
-								<div class="col-lg-4 col-md-6">
-									<div class="service-widget">
-										<div class="service-img">
-										    <a href="{{('service/'.$s->id)}}">
-                                                <img src="{{asset('uploads/photo/'.$s->image)}}" alt="image" width="400px" height="150px">
-                                            </a>
-											<div class="item-info">
-												<div class="service-user">
-													<a href="#">
-														<img src="{{asset('uploads/photo/'.$s->ProviderService->info->image)}}" alt="">
-													</a>	
-                                                    <span class="service-price">{{$s->price}}JD</span>
-												</div>
-												<div class="cate-list">
-													<a class="bg-yellow" href="service-details.html">{{$s->name}}</a>
-												</div>
-											</div>
-										</div>
-										<div class="service-content">
-											<h3 class="title">
-												  {{$s->provider_name}}
-											</h3>
-											<div class="rating">	
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star"></i>		
-												<span class="d-inline-block average-rating">(4.3)</span>
-											</div>
-											<div class="user-info">
-												<div class="row">	
-													<span class="col-auto ser-contact"><i class="fas fa-phone mr-1"></i> 
-														<span>xxxxxxxx49</span>
-													</span>
-													<span class="col ser-location">
-														<span>{{$s->location}}</span> <i class="fas fa-map-marker-alt ml-1"></i>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-                                @endforeach
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>﻿
-				 --}}
 
         
 
@@ -304,5 +223,6 @@
                             </div>
                         </div>
                     </div>﻿
-                    
+					</div>
+				</div>
                     @endsection

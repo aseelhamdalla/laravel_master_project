@@ -102,7 +102,7 @@
 												<div class="card-body">
 													<div class="form-group">
 														<label>Website Name</label>
-														<input type="text" class="form-control" placeholder="Dreamguy's Technologies">
+														<input type="text" class="form-control" placeholder="We Care">
 													</div>
 													<div class="form-group">
 														<label>Contact Details</label>
@@ -114,7 +114,7 @@
 													</div>
 													<div class="form-group">
 														<label>Currency</label>
-														<p><strong>USD $ </strong></p>
+														<p><strong>JD </strong></p>
 													</div>
 													<div class="form-group">
 														<label>Website Logo</label>

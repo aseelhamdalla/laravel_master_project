@@ -39,7 +39,7 @@
 							<a href="http://127.0.0.1:8000/Manage_custmers"><i class="fas fa-user"></i> <span>Users</span></a>
 						</li>
 						<li>
-							<a href="settings.html"><i class="fas fa-cog"></i> <span> Settings</span></a>
+							<a href="http://127.0.0.1:8000/setting"><i class="fas fa-cog"></i> <span> Settings</span></a>
 						</li>
 					</ul>
 				</div>
@@ -146,19 +146,20 @@
 											@foreach($BookingSort as $one )
 											<tr>
 												<td>    
-							 	@if(isset($one->info->image) && isset($one->userBook->name))                             
+				 	@if(isset($one->userBook->info) || isset($one->userBook->name) )                             
 													<a href="#" class="avatar avatar-sm mr-2">
 
 					<img class="avatar-img rounded-circle"  src="{{asset('uploads/photo/'.$one->userBook->info->image)}}" alt="">
-																</a>{{$one->userBook->name}}
-
+																</a>
+																{{$one->userBook->name}}
+        
 				@else
 				<a href="#" class="avatar avatar-sm mr-2">
 					<img src="https://static1.squarespace.com/static/54b7b93ce4b0a3e130d5d232/54e20ebce4b014cdbc3fd71b/5a992947e2c48320418ae5e0/1519987239570/icon.png?format=1500w"
 					class="avatar-img rounded-circle" alt="image" width="50px"
 					height="50px">
 																</a>{{$one->userBook->name}}
-
+  
 																@endif
 															</td>
 												<td class="text-nowrap">{{$one->created_at}}</td>
@@ -226,9 +227,11 @@
 												</td>
 												<td>
 													<span class="table-avatar">
-									@if(isset($providerInfo)  && !empty($providerInfo) )	
-									<img class="avatar-img rounded-circle" alt="User Image" src="{{asset('uploads/photo/'.$providerInfo->image)}}"  width="50px" height="50px" >
+									@if( !empty($providerInfo) )	
+				<img class="avatar-img rounded-circle" alt="User Image" src="{{asset('uploads/photo/'.$providerInfo->image)}}"  width="50px" height="50px" >
+
 													@else 
+													{{$providerInfo}}
 			<img src="https://static1.squarespace.com/static/
 										54b7b93ce4b0a3e130d5d232/54e20ebce4b014cdbc3fd71b/5a992947e2c48320418ae5e0/
 								1519987239570/icon.png?format=1500w"   alt="User Image"  class="avatar-img rounded-circle"   width="40px" height="40px">

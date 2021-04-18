@@ -180,18 +180,9 @@ class ServiceController extends Controller
   }
 
 
-
-  // public function showSubcat($id)
-  // {
-
-  //     $subcat=Category::find($id);
-  //     return view('publicPages.subCat',compact('subcat','id'));
-  // }
-
   public function single($id)
   {
     // $id=provider_id;
-
     $providerNo   = service::find($id)->Services;
 
     // dd($providerNo);

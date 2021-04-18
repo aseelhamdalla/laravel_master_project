@@ -177,7 +177,7 @@
 											<div class="card-body">
 
 												@foreach($reviews  as $review)
-												{{$review->Userreview->info}}
+										
 												<div class="review-list">
 													
                                                     <div class="review-img">
@@ -346,7 +346,7 @@
 							<span class="service-price">{{$one->price}}JD</span>
 						</div>
 						<div class="cate-list">
-							<a class="bg-yellow" href="service-details.html">{{$catName}}</a>
+							<a class="bg-yellow" href="service-details.html">{{$one->provider_name}}</a>
 						</div>
 					</div>
 				</div>
@@ -371,8 +371,10 @@
 					</div>
 					<div class="user-info">
 						<div class="row">
-							<span class="col-auto ser-contact"><i class="fas fa-phone mr-1"></i> <span>+9627xxxxxxx</span></span>
-							<span class="col ser-location"><span>{{$one->location}}</span>  <i class="fas fa-map-marker-alt ml-1"></i></span>
+					
+							<span style='margin-left: .5rem'>
+								<i class="fas fa-map-marker-alt ml-2"></i><span style='margin-left: .5rem'>{{$one->location}}</span> 
+							</span>
 						</div>
 					</div>
 				</div>

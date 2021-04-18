@@ -27,6 +27,7 @@ class UserController extends Controller
                 if (isset($notification->data['user']['id'])) {
                     // return  $notification->data['user']['id'];
                     $id = $notification->data['user']['id'];
+                  
                     $userImage =  user::find($id)->info->image;
                     $collection->put($id, $userImage);
                 }
@@ -47,6 +48,16 @@ class UserController extends Controller
 
     public function read()
     {
+
+        // $y = $custmerBooking   = User::find($id)->bookings->sortByDesc('id')->values();
+        // // dd($y);
+        // if ($y->isNotEmpty()) {
+        //   foreach ($y as $onebook) {
+        //     $poviderNumber = $onebook->provider_id;
+        //     $providerInfo = user_info::where('user_id', '=', $poviderNumber)->first();
+        //     // dd($providerInfo->image);
+        //   }
+        // }
         $users = User::count();
         $providers = User::where('role', '2')->get();
         $custmer = User::where('role', '3')->get();

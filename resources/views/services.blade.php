@@ -88,7 +88,7 @@
 						<div class="row">
 							@if(count($services)== 0)
 						
-                 php
+             
 							<h6>There is no services yet for you {{Auth::user()->name}}</h6>
 
 						@endif	
@@ -112,7 +112,7 @@
 												<span class="service-price">{{$service->price}}JD</span>
 											</div>
 											<div class="cate-list">
-				<a class="bg-yellow" value="{{$service->category_id}}">	{{$service->name}}</a>
+				<a class="bg-yellow" value="{{$service->category_id}}">	{{$service->provider_name}}</a>
 											</div>
 										</div>
 									</div>
@@ -121,7 +121,7 @@
 										
 										</p>
 										<p class="title text-truncate">
-									{{$service->provider_name}}
+									{{$service->name}}
 	
 										</p>
 								

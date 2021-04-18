@@ -80,19 +80,7 @@ Route::get('/landing','UserController@index');
 
 
 Auth::routes();
-// Route::prefix('admin')->group(function(){
-//     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-//     Route::post('/login', 'Auth\LoginController@login')->name('login.submit');
-//     Route::get('/logout', 'Auth\LoginController@logout');
 
-//         });
-        
-        
-        // Route::prefix('admin')->group(function(){
-        //     Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-        //     Route::post('/register', 'Auth\RegisterController@create')->name('register.submit');
-          
-        //         });
 
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -100,18 +88,6 @@ Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin'
 Route::get('/provider', 'ProviderController@index')->name('provider')->middleware('provider');
 Route::get('/user', 'UserController@index')->name('user')->middleware('user');
 
-
-
-
-
-
-
-// Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@showLoginForm']);
-
-
-// Route::get('/register', function () {
-//     return view('publicPages.register');
-// });
 
 // **************************************************** provider pages in dashboard  
 

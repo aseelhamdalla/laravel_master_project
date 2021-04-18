@@ -7,7 +7,7 @@ use App\service;
 use DB;
 use App\review;
 use Illuminate\Http\Request;
-//  use Illuminate\Pagination\Paginator;
+ use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class CategoryController extends Controller
@@ -19,7 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-
+        // this code is for pagination 
+        // $categories = DB::table('categories')->paginate(4);
         $categories = Category::all();
         return view('publicPages.catPublic', [
             'categories' => $categories,
